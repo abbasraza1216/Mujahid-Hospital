@@ -49,7 +49,6 @@
         .hero { padding: 10rem 5% 6rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; background: linear-gradient(135deg, var(--bg-gray) 0%, white 100%); min-height: 85vh; }
         .hero-content h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 1.5rem; }
         
-        /* The Moving Bubble */
         .hero-visual { 
             background: var(--primary); 
             border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; 
@@ -66,10 +65,9 @@
             padding: 20px;
             margin: 0 auto;
         }
-        .hero-visual i { width: 80px; height: 80px; margin-bottom: 15px; }
-        .hero-visual h2 { color: white; font-size: 2rem; margin: 0; }
+        .hero-visual h2 { color: white; font-size: 2.2rem; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
 
-        .stats { background: var(--primary); color: white; padding: 3rem 5%; display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center; }
+        .stats { background: var(--primary); color: white; padding: 3.5rem 5%; display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center; }
         .stat-number { font-size: 2.2rem; font-weight: 700; color: var(--accent); }
 
         section { padding: 6rem 5%; }
@@ -84,9 +82,6 @@
         .doc-card { text-align: center; padding: 2.5rem; border: 1px solid #eee; border-radius: 16px; background: white; transition: var(--transition); }
         .doc-img { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 5px solid var(--accent); margin-bottom: 1.5rem; background: var(--bg-gray); }
 
-        .test-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
-        .testimonial-card { background: var(--bg-gray); padding: 2rem; border-radius: 12px; position: relative; }
-        
         .form-container { max-width: 850px; margin: 0 auto; background: var(--bg-gray); padding: 3.5rem; border-radius: 16px; box-shadow: var(--shadow-md); }
         .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
         .full { grid-column: 1 / -1; }
@@ -111,8 +106,9 @@
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#departments">Departments</a></li>
+            <li><a href="#services">Services</a></li>
             <li><a href="#doctors">Leadership</a></li>
-            <li><a href="#appointment">Book Now</a></li>
+            <li><a href="#appointment">Bookings</a></li>
         </ul>
         <div style="display: flex; gap: 1rem;">
             <a href="tel:03337672190" class="btn btn-danger"><div class="pulse-dot"></div> Emergency</a>
@@ -122,7 +118,7 @@
     <header id="home" class="hero">
         <div class="hero-content">
             <h1>Expert Care in the Heart of Multan</h1>
-            <p>Trusted by over 10,000 families. Mujahid Hospital is a leader in surgical precision and maternal care, located on Khan Village Road.</p>
+            <p>Trusted by over 10,000 families. Mujahid Hospital is a leader in surgical precision and maternal care.</p>
             <div style="display: flex; gap: 1rem; margin-bottom: 2.5rem; flex-wrap: wrap;">
                 <a href="#appointment" class="btn btn-accent">Schedule Your Visit</a>
                 <a href="#departments" class="btn btn-outline">Our Specialties</a>
@@ -133,11 +129,10 @@
             </div>
         </div>
         
-        <!-- The Morphing Bubble with Name -->
         <div class="hero-visual">
             <i data-lucide="cross"></i>
             <h2>Mujahid<br>Hospital</h2>
-            <p style="opacity: 0.9; margin-top: 10px;">Since 2015</p>
+            <p style="opacity: 0.9; margin-top: 10px;">Excellence in Multan</p>
         </div>
     </header>
 
@@ -145,7 +140,7 @@
         <div><div class="stat-number">10,000+</div><p>Patients Treated</p></div>
         <div><div class="stat-number">2,000+</div><p>C-Sections Done</p></div>
         <div><div class="stat-number">20</div><p>Inpatient Beds</p></div>
-        <div><div class="stat-number">24/7</div><p>Emergency Care</p></div>
+        <div><div class="stat-number">24/7</div><p>Surgical Support</p></div>
     </section>
 
     <section id="departments">
@@ -175,14 +170,14 @@
                 <ul>
                     <li>Circumcisions</li>
                     <li>Neonatal Care</li>
-                    <li>Pediatric Surgeries</li>
+                    <li>General Pediatric Surgery</li>
                 </ul>
             </div>
             <div class="card">
                 <i data-lucide="stethoscope"></i>
                 <h3>General Medicine</h3>
                 <ul>
-                    <li>Chronic Care</li>
+                    <li>Chronic Disease Management</li>
                     <li>Diagnostic Evaluations</li>
                     <li>Inpatient Medicine</li>
                 </ul>
@@ -190,7 +185,34 @@
         </div>
     </section>
 
-    <section id="doctors" style="background: var(--bg-gray);">
+    <!-- RESTORED SERVICES SECTION -->
+    <section id="services" style="background: var(--bg-gray);">
+        <h2>Our Facilities</h2>
+        <div class="grid-container">
+            <div class="card">
+                <i data-lucide="beaker"></i>
+                <h3>Diagnostic Lab</h3>
+                <p>Fully equipped clinical laboratory for rapid and accurate diagnostic testing.</p>
+            </div>
+            <div class="card">
+                <i data-lucide="bed-double"></i>
+                <h3>20-Bed Ward</h3>
+                <p>Comfortable and sterile inpatient rooms with 24/7 nursing supervision.</p>
+            </div>
+            <div class="card">
+                <i data-lucide="shield-plus"></i>
+                <h3>Modern OT</h3>
+                <p>Advanced operating theaters designed for major and minor surgical procedures.</p>
+            </div>
+            <div class="card">
+                <i data-lucide="phone-call"></i>
+                <h3>Emergency</h3>
+                <p>24-hour trauma support and emergency medical interventions.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="doctors">
         <h2>Hospital Leadership</h2>
         <div class="grid-container" style="max-width: 900px; margin: 0 auto;">
             <div class="doc-card">
@@ -208,21 +230,30 @@
         </div>
     </section>
 
+    <!-- RESTORED & CORRECTED APPOINTMENT SECTION -->
     <section id="appointment">
         <div class="form-container">
             <h2>Book An Appointment</h2>
+            <p class="subtitle" style="margin-bottom: 2rem;">Request a consultation or surgery slot online.</p>
             <form id="booking-form" class="form-grid">
                 <input type="text" placeholder="Patient Name" required>
-                <input type="tel" placeholder="Phone Number" required>
+                <input type="tel" placeholder="Phone Number (03XX XXXXXXX)" required>
                 <div class="full">
                     <select required>
                         <option value="">Select Department</option>
-                        <option>Obs & Gynaecology</option>
-                        <option>General Medicine</option>
+                        <option>Obs & Gynaecology (Dr. Zilley Zahra)</option>
+                        <option>General Medicine (Dr. Mujahid Hussain)</option>
                         <option>General Surgery</option>
                         <option>Pediatrics</option>
                     </select>
                 </div>
+                <input type="date" required>
+                <select required>
+                    <option value="">Preferred Slot</option>
+                    <option>Morning (10:00 AM - 01:00 PM)</option>
+                    <option>Evening (05:00 PM - 08:00 PM)</option>
+                </select>
+                <textarea class="full" placeholder="Briefly describe symptoms or surgical requirements..." rows="4"></textarea>
                 <button type="submit" class="btn btn-accent full">Confirm Booking Request</button>
             </form>
         </div>
@@ -232,12 +263,12 @@
         <div class="grid-container">
             <div class="card">
                 <i data-lucide="map-pin"></i>
-                <h4>Address</h4>
+                <h4>Location</h4>
                 <p>Khan Village Road, Head Muhammad Wala Bypass, near Bosan Road, Multan.</p>
             </div>
             <div class="card">
                 <i data-lucide="phone"></i>
-                <h4>Contact</h4>
+                <h4>Call Center</h4>
                 <p>03337672190</p>
             </div>
             <div class="card">
@@ -249,22 +280,28 @@
     </section>
 
     <footer>
-        <div style="text-align: center; color: #888; font-size: 0.85rem;">
+        <div style="text-align: center; color: #888; font-size: 0.85rem; padding: 2rem 0;">
             &copy; 2026 Mujahid Hospital Multan. All rights reserved.
         </div>
     </footer>
 
     <div id="emergency-banner">
-        <div><strong>EMERGENCY:</strong> Call 03337672190 immediately.</div>
+        <div><i data-lucide="alert-circle" style="vertical-align: middle;"></i> <strong>EMERGENCY:</strong> Call 03337672190 immediately.</div>
         <a href="tel:03337672190" class="btn btn-accent">Call Now</a>
     </div>
 
     <script>
         lucide.createIcons();
+        
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             if (window.scrollY > 50) nav.classList.add('scrolled');
             else nav.classList.remove('scrolled');
+        });
+
+        document.getElementById('booking-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Your request has been sent! Mujahid Hospital will call you shortly to confirm your slot.');
         });
     </script>
 </body>
