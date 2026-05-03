@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mujahid Hospital | Compassionate Care. Advanced Medicine.</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* === VARIABLES & RESET === */
+        :root {
+            --primary: #1A3C6E;
+            --primary-dark: #0D1F3C;
+            --accent: #2AAE74;
+            --accent-hover: #218c5e;
+            --bg-white: #FFFFFF;
+            --bg-gray: #F7F9FC;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --danger: #E63946;
+            --transition: all 0.3s ease;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: var(--bg-white);
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* === TYPOGRAPHY & BUTTONS === */
+        h1, h2, h3, h4 { color: var(--primary); font-weight: 700; line-height: 1.2; }
+        h2 { font-size: 2.5rem; margin-bottom: 1rem; text-align: center; }
+        .subtitle { text-align: center; color: var(--text-light); margin-bottom: 3rem; font-size: 1.1rem; }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            text-align: center;
+        }
+        .btn-accent { background: var(--accent); color: white; }
+        .btn-accent:hover { background: var(--accent-hover); transform: translateY(-2px); }
+        .btn-outline { border: 2px solid var(--primary); color: var(--primary); background: transparent; }
+        .btn-outline:hover { background: var(--primary); color: white; }
+        .btn-danger { background: var(--danger); color: white; display: flex; align-items: center; gap: 0.5rem; }
+
+        /* === NAVIGATION === */
+        nav {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+            border-bottom: 1px solid transparent;
+        }
+        nav.scrolled { border-bottom: 1px solid #eee; box-shadow: var(--shadow-sm); }
+        .logo { display: flex; align-items: center; gap: 0.5rem; font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a { font-weight: 500; transition: var(--transition); }
+        .nav-links a:hover { color: var(--accent); }
+        .nav-ctas { display: flex; gap: 1rem; align-items: center; }
+        .pulse-dot { width: 10px; height: 10px; background: white; border-radius: 50%; animation: pulse 1.5s infinite; }
+        
+        .hamburger { display: none; cursor: pointer; }
+
+        /* === HERO SECTION === */
+        .hero {
+            padding: 8rem 5% 4rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            background: linear-gradient(135deg, var(--bg-gray) 0%, white 100%);
+            min-height: 90vh;
+        }
+        .hero-content h1 { font-size: 3.5rem; margin-bottom: 1rem; }
+        .hero-content p { font-size: 1.25rem; color: var(--text-light); margin-bottom: 2rem; }
+        .hero-ctas { display: flex; gap: 1rem; margin-bottom: 2rem; }
+        .trust-badges { display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.9rem; color: var(--text-light); }
+        .trust-badges span { display: flex; align-items: center; gap: 0.25rem; color: var(--primary); font-weight: 500; }
+        .hero-visual {
+            width: 100%; height: 100%; min-height: 400px;
+            background: var(--primary);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            position: relative;
+            animation: morph 8s ease-in-out infinite;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .hero-visual::after {
+            content: ''; position: absolute; width: 90%; height: 90%;
+            border-radius: 50%; border: 2px dashed rgba(255,255,255,0.2);
+            animation: rotate 20s linear infinite;
+        }
+        .hero-visual i { color: white; width: 100px; height: 100px; z-index: 2; }
+
+        /* === STATS BAR === */
+        .stats {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 5%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+        .stat-number { font-size: 2.5rem; font-weight: 700; color: var(--accent); margin-bottom: 0.5rem; }
+
+        /* === SHARED SECTION PADDING === */
+        section { padding: 5rem 5%; }
+
+        /* === DEPARTMENTS === */
+        .grid-departments {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+            border-top: 4px solid transparent;
+            transition: var(--transition);
+        }
+        .card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-top-color: var(--accent); }
+        .card i { color: var(--primary); margin-bottom: 1rem; width: 32px; height: 32px; }
+        .card h3 { margin-bottom: 0.5rem; }
+        .card a { color: var(--accent); font-weight: 600; font-size: 0.9rem; margin-top: 1rem; display: inline-block; }
+
+        /* === WHY US === */
+        .why-us-container { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; background: var(--bg-gray); border-radius: 12px; padding: 3rem;}
+        .why-list li { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem; }
+        .why-list i { color: var(--accent); flex-shrink: 0; margin-top: 0.25rem; }
+        .why-visual { background: var(--primary); border-radius: 12px; padding: 3rem; color: white; text-align: center; }
+        .why-visual h3 { color: white; margin-bottom: 1rem; }
+
+        /* === DOCTORS === */
+        .doctors-scroll { display: flex; gap: 2rem; overflow-x: auto; padding-bottom: 1rem; scroll-snap-type: x mandatory; }
+        .doctor-card { flex: 0 0 300px; scroll-snap-align: start; text-align: center; padding: 2rem; border: 1px solid #eee; border-radius: 8px; }
+        .doc-avatar { width: 100px; height: 100px; border-radius: 50%; background: var(--bg-gray); margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: bold; color: var(--primary); }
+        .stars { color: #FFB800; margin: 0.5rem 0 1rem; }
+
+        /* === SERVICES (TABS) === */
+        .tabs { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+        .tab-btn { padding: 0.5rem 1.5rem; border: none; background: #eee; border-radius: 20px; cursor: pointer; font-weight: 500; transition: var(--transition); }
+        .tab-btn.active { background: var(--primary); color: white; }
+        .tab-content { display: none; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .tab-content.active { display: grid; animation: fadeIn 0.5s ease; }
+
+        /* === APPOINTMENT === */
+        #appointment { background: var(--bg-gray); }
+        .form-container { max-width: 800px; margin: 0 auto; background: white; padding: 3rem; border-radius: 12px; box-shadow: var(--shadow-md); }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        .form-group.full { grid-column: 1 / -1; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 6px; font-family: inherit; }
+        .form-group textarea { resize: vertical; min-height: 100px; }
+        .error-msg { color: var(--danger); font-size: 0.8rem; margin-top: 0.25rem; display: none; }
+
+        /* === TESTIMONIALS === */
+        .testimonial-carousel { max-width: 800px; margin: 0 auto; text-align: center; position: relative; overflow: hidden; }
+        .test-slide { display: none; padding: 2rem; }
+        .test-slide.active { display: block; animation: fadeIn 0.5s; }
+        .quote { font-size: 1.25rem; font-style: italic; color: var(--text-dark); margin-bottom: 1.5rem; }
+        .dots { display: flex; justify-content: center; gap: 0.5rem; margin-top: 1rem; }
+        .dot { width: 10px; height: 10px; border-radius: 50%; background: #ccc; cursor: pointer; }
+        .dot.active { background: var(--primary); }
+
+        /* === NEWS === */
+        .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .news-card { border: 1px solid #eee; border-radius: 8px; padding: 1.5rem; transition: var(--transition); }
+        .news-card:hover { box-shadow: var(--shadow-md); }
+        .badge { background: var(--bg-gray); color: var(--primary); font-size: 0.8rem; padding: 0.25rem 0.5rem; border-radius: 4px; display: inline-block; margin-bottom: 1rem; font-weight: 600;}
+
+        /* === CONTACT & MAP === */
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+        .contact-info li { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+        .contact-info i { color: var(--primary); }
+        .map-placeholder { background: #e0e0e0; height: 100%; min-height: 300px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--text-light); text-align: center; padding: 2rem; }
+
+        /* === FOOTER === */
+        footer { background: var(--primary-dark); color: white; padding: 4rem 5% 1rem; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 3rem; }
+        .footer-col h4 { color: white; margin-bottom: 1.5rem; }
+        .footer-col ul li { margin-bottom: 0.75rem; }
+        .footer-col a { color: #ccc; transition: var(--transition); }
+        .footer-col a:hover { color: var(--accent); }
+        .socials { display: flex; gap: 1rem; margin-top: 1rem; }
+        .socials a { background: rgba(255,255,255,0.1); padding: 0.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; text-align: center; color: #aaa; font-size: 0.9rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem;}
+
+        /* === EMERGENCY BANNER === */
+        #emergency-banner { position: fixed; bottom: 0; left: 0; width: 100%; background: var(--danger); color: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1001; font-weight: 600; }
+        #close-banner { background: transparent; border: none; color: white; cursor: pointer; }
+
+        /* === TOAST === */
+        #toast { position: fixed; bottom: 20px; right: -300px; background: var(--accent); color: white; padding: 1rem 2rem; border-radius: 6px; box-shadow: var(--shadow-md); transition: 0.3s; z-index: 2000; }
+        #toast.show { right: 20px; }
+
+        /* === STICKY MOBILE CTA === */
+        .mobile-cta { display: none; position: fixed; bottom: 60px; right: 20px; z-index: 999; border-radius: 50px; padding: 1rem; box-shadow: var(--shadow-md); }
+
+        /* === ANIMATIONS === */
+        @keyframes morph { 0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; } 50% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; } }
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes pulse { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: 0.5; } 100% { transform: scale(1); opacity: 1; } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 992px) {
+            .hero, .why-us-container, .contact-grid, .form-grid { grid-template-columns: 1fr; }
+            .hero { padding-top: 6rem; text-align: center; }
+            .hero-ctas { justify-content: center; }
+            .stats { grid-template-columns: 1fr 1fr; }
+            .nav-links, .nav-ctas .btn:not(.btn-danger) { display: none; }
+            .hamburger { display: block; }
+            .mobile-cta { display: flex; }
+            
+            /* Mobile Nav Slide-in */
+            .nav-links.active { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: white; padding: 2rem; box-shadow: var(--shadow-md); text-align: center; }
+        }
+        @media (max-width: 600px) {
+            .stats { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav id="navbar">
+        <a href="#" class="logo">
+            <i data-lucide="activity" style="color: var(--danger)"></i>
+            Mujahid Hospital
+        </a>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#departments">Departments</a></li>
+            <li><a href="#doctors">Doctors</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#appointment">Appointment</a></li>
+        </ul>
+        <div class="nav-ctas">
+            <a href="tel:+923000000000" class="btn btn-danger">
+                <div class="pulse-dot"></div> Emergency
+            </a>
+            <a href="#appointment" class="btn btn-accent">Book Appointment</a>
+            <i data-lucide="menu" class="hamburger" id="menu-btn"></i>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <h1>Your Health Is Our Highest Priority</h1>
+            <p>World-class medical expertise, delivered with warmth and precision at Mujahid Hospital.</p>
+            <div class="hero-ctas">
+                <a href="#appointment" class="btn btn-accent">Book an Appointment</a>
+                <a href="#services" class="btn btn-outline">Explore Our Services</a>
+            </div>
+            <div class="trust-badges">
+                <span><i data-lucide="check-circle-2" size="16"></i> 500+ Expert Doctors</span>
+                <span><i data-lucide="check-circle-2" size="16"></i> 24/7 Emergency</span>
+                <span><i data-lucide="check-circle-2" size="16"></i> 10,000+ Patients Served</span>
+                <span><i data-lucide="check-circle-2" size="16"></i> State-of-the-Art Equipment</span>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <i data-lucide="heart-pulse"></i>
+        </div>
+    </header>
+
+    <!-- STATS BAR -->
+    <section id="stats" class="stats">
+        <div><div class="stat-number" data-target="15">0</div><p>Years of Excellence</p></div>
+        <div><div class="stat-number" data-target="500">0</div><p>Specialist Doctors</p></div>
+        <div><div class="stat-number" data-target="10000">0</div><p>Successful Treatments</p></div>
+        <div><div class="stat-number" data-target="24">0</div><p>Hour Emergency</p></div>
+    </section>
+
+    <!-- DEPARTMENTS -->
+    <section id="departments">
+        <h2>Our Medical Departments</h2>
+        <p class="subtitle">Comprehensive care across every specialty</p>
+        <div class="grid-departments">
+            <div class="card"><i data-lucide="heart"></i><h3>Cardiology</h3><p>Comprehensive heart care & surgery.</p><a href="#appointment">Learn More →</a></div>
+            <div class="card"><i data-lucide="bone"></i><h3>Orthopedics</h3><p>Bone, joint, and spine specialists.</p><a href="#appointment">Learn More →</a></div>
+            <div class="card"><i data-lucide="brain"></i><h3>Neurology</h3><p>Advanced brain and nerve treatments.</p><a href="#appointment">Learn More →</a></div>
+            <div class="card"><i data-lucide="baby"></i><h3>Pediatrics</h3><p>Expert care for infants and children.</p><a href="#appointment">Learn More →</a></div>
+            <div class="card"><i data-lucide="microscope"></i><h3>Oncology</h3><p>Compassionate cancer care & therapy.</p><a href="#appointment">Learn More →</a></div>
+            <div class="card"><i data-lucide="user-plus"></i><h3>Gynecology</h3><p>Women's health and maternity care.</p><a href="#appointment">Learn More →</a></div>
+            <div class="card"><i data-lucide="ambulance"></i><h3>Emergency</h3><p>24/7 rapid response trauma center.</p><a href="#appointment">Learn More →</a></div>
+            <div class="card"><i data-lucide="scissors"></i><h3>Surgery</h3><p>Minimally invasive general procedures.</p><a href="#appointment">Learn More →</a></div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section id="why-us">
+        <div class="why-us-container">
+            <div>
+                <h2>Why Choose Mujahid Hospital?</h2>
+                <ul class="why-list">
+                    <li><i data-lucide="award"></i> <div><strong>Experienced & Certified Doctors</strong><br>Our team comprises globally trained medical professionals.</div></li>
+                    <li><i data-lucide="monitor"></i> <div><strong>Advanced Diagnostic Technology</strong><br>Precise testing for accurate and early diagnosis.</div></li>
+                    <li><i data-lucide="smile"></i> <div><strong>Compassionate Patient Care</strong><br>We treat every patient like family.</div></li>
+                    <li><i data-lucide="credit-card"></i> <div><strong>Affordable Treatment Plans</strong><br>World-class care accessible to everyone.</div></li>
+                    <li><i data-lucide="clock"></i> <div><strong>24/7 Emergency Response</strong><br>Ready to handle any critical situation around the clock.</div></li>
+                </ul>
+            </div>
+            <div class="why-visual">
+                <i data-lucide="shield-check" style="width: 64px; height: 64px; margin-bottom: 1rem;"></i>
+                <h3>Your Trust, Our Responsibility</h3>
+                <p>Fully accredited by national health boards, ensuring the highest standards of safety and medical protocols.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED DOCTORS -->
+    <section id="doctors">
+        <h2>Meet Our Specialists</h2>
+        <p class="subtitle">Highly qualified experts dedicated to your health.</p>
+        <div class="doctors-scroll">
+            <div class="doctor-card">
+                <div class="doc-avatar">AK</div>
+                <h3>Dr. Ahmed Khan</h3>
+                <p style="color: var(--text-light)">Cardiologist • 15 Yrs Exp.</p>
+                <div class="stars">★★★★★</div>
+                <button class="btn btn-outline" style="width: 100%" onclick="window.location.href='#appointment'">Book Appointment</button>
+            </div>
+            <div class="doctor-card">
+                <div class="doc-avatar">SM</div>
+                <h3>Dr. Sara Malik</h3>
+                <p style="color: var(--text-light)">Neurologist • 12 Yrs Exp.</p>
+                <div class="stars">★★★★★</div>
+                <button class="btn btn-outline" style="width: 100%" onclick="window.location.href='#appointment'">Book Appointment</button>
+            </div>
+            <div class="doctor-card">
+                <div class="doc-avatar">BR</div>
+                <h3>Dr. Bilal Raza</h3>
+                <p style="color: var(--text-light)">Orthopedic Surgeon • 20 Yrs Exp.</p>
+                <div class="stars">★★★★★</div>
+                <button class="btn btn-outline" style="width: 100%" onclick="window.location.href='#appointment'">Book Appointment</button>
+            </div>
+            <div class="doctor-card">
+                <div class="doc-avatar">HQ</div>
+                <h3>Dr. Hina Qureshi</h3>
+                <p style="color: var(--text-light)">Gynecologist • 10 Yrs Exp.</p>
+                <div class="stars">★★★★★</div>
+                <button class="btn btn-outline" style="width: 100%" onclick="window.location.href='#appointment'">Book Appointment</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES (TABS) -->
+    <section id="services">
+        <h2>Our Services</h2>
+        <div class="tabs">
+            <button class="tab-btn active" data-target="diagnostic">Diagnostic</button>
+            <button class="tab-btn" data-target="surgical">Surgical</button>
+            <button class="tab-btn" data-target="preventive">Preventive</button>
+        </div>
+        
+        <div id="diagnostic" class="tab-content active">
+            <div class="card"><i data-lucide="scan"></i><h3>MRI & CT Scan</h3><p>High-res imaging for accurate diagnosis.</p><a href="#appointment" class="btn btn-outline">Enquire</a></div>
+            <div class="card"><i data-lucide="activity"></i><h3>Laboratory Tests</h3><p>Automated lab for swift results.</p><a href="#appointment" class="btn btn-outline">Enquire</a></div>
+            <div class="card"><i data-lucide="clipboard-list"></i><h3>X-Ray & Ultrasound</h3><p>Digital radiography services.</p><a href="#appointment" class="btn btn-outline">Enquire</a></div>
+        </div>
+        <div id="surgical" class="tab-content">
+            <div class="card"><i data-lucide="scissors"></i><h3>General Surgery</h3><p>Standard operative procedures.</p><a href="#appointment" class="btn btn-outline">Enquire</a></div>
+            <div class="card"><i data-lucide="eye"></i><h3>Laparoscopy</h3><p>Minimally invasive keyhole surgery.</p><a href="#appointment" class="btn btn-outline">Enquire</a></div>
+        </div>
+        <div id="preventive" class="tab-content">
+            <div class="card"><i data-lucide="shield"></i><h3>Health Checkups</h3><p>Annual full-body screening plans.</p><a href="#appointment" class="btn btn-outline">Enquire</a></div>
+            <div class="card"><i data-lucide="syringe"></i><h3>Vaccinations</h3><p>Immunization for children and adults.</p><a href="#appointment" class="btn btn-outline">Enquire</a></div>
+        </div>
+    </section>
+
+    <!-- APPOINTMENT BOOKING -->
+    <section id="appointment">
+        <h2>Book an Appointment</h2>
+        <p class="subtitle">Schedule your visit quickly and easily.</p>
+        <div class="form-container">
+            <form id="booking-form" class="form-grid">
+                <div class="form-group">
+                    <label>Full Name *</label>
+                    <input type="text" id="name" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label>Phone Number *</label>
+                    <input type="tel" id="phone" required placeholder="+92 3XX XXXXXXX">
+                </div>
+                <div class="form-group full">
+                    <label>Email Address</label>
+                    <input type="email" id="email" placeholder="john@example.com">
+                </div>
+                <div class="form-group">
+                    <label>Department *</label>
+                    <select id="department" required>
+                        <option value="">Select Department</option>
+                        <option value="cardiology">Cardiology</option>
+                        <option value="orthopedics">Orthopedics</option>
+                        <option value="neurology">Neurology</option>
+                        <option value="gynecology">Gynecology</option>
+                        <option value="general">General Medicine</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Preferred Doctor</label>
+                    <select id="doctor">
+                        <option value="">Select Department First</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Date *</label>
+                    <input type="date" id="date" required>
+                </div>
+                <div class="form-group">
+                    <label>Time Slot *</label>
+                    <select id="time" required>
+                        <option value="">Select Time</option>
+                        <option value="morning">Morning (9 AM - 12 PM)</option>
+                        <option value="afternoon">Afternoon (12 PM - 4 PM)</option>
+                        <option value="evening">Evening (4 PM - 8 PM)</option>
+                    </select>
+                </div>
+                <div class="form-group full">
+                    <label>Symptoms / Message</label>
+                    <textarea id="message" placeholder="Briefly describe your symptoms..."></textarea>
+                </div>
+                <div class="form-group full">
+                    <button type="submit" class="btn btn-accent" style="width: 100%; font-size: 1.1rem;">Confirm Appointment</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials">
+        <h2>What Our Patients Say</h2>
+        <div class="testimonial-carousel">
+            <div class="test-slide active">
+                <div class="stars">★★★★★</div>
+                <p class="quote">"The care I received at Mujahid Hospital was exceptional. The doctors were patient, and the staff made sure I was comfortable throughout my recovery."</p>
+                <h4>- Sarah J.</h4>
+                <p style="color: var(--text-light); font-size: 0.9rem;">Orthopedic Surgery</p>
+            </div>
+            <div class="test-slide">
+                <div class="stars">★★★★★</div>
+                <p class="quote">"State-of-the-art facilities and a very clean environment. I highly recommend Dr. Ahmed Khan for cardiac issues."</p>
+                <h4>- Muhammad T.</h4>
+                <p style="color: var(--text-light); font-size: 0.9rem;">Cardiology</p>
+            </div>
+            <div class="test-slide">
+                <div class="stars">★★★★★</div>
+                <p class="quote">"From the emergency room to the ward, every single nurse and doctor acted with urgency and compassion."</p>
+                <h4>- Ayesha R.</h4>
+                <p style="color: var(--text-light); font-size: 0.9rem;">Emergency Care</p>
+            </div>
+            <div class="dots">
+                <div class="dot active" onclick="setSlide(0)"></div>
+                <div class="dot" onclick="setSlide(1)"></div>
+                <div class="dot" onclick="setSlide(2)"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LATEST NEWS -->
+    <section id="news" style="background: var(--bg-gray);">
+        <h2>Health Tips & News</h2>
+        <div class="news-grid">
+            <div class="news-card" style="background: white;">
+                <span class="badge">Heart Health</span>
+                <h3>5 Ways to Keep Your Heart Strong</h3>
+                <p style="color: var(--text-light); margin: 0.5rem 0;">Simple lifestyle changes can significantly reduce the risk of cardiovascular diseases...</p>
+                <a href="#" style="color: var(--primary); font-weight: 600;">Read More →</a>
+            </div>
+            <div class="news-card" style="background: white;">
+                <span class="badge">Nutrition</span>
+                <h3>Children's Nutrition: What You Need to Know</h3>
+                <p style="color: var(--text-light); margin: 0.5rem 0;">A guide for parents on ensuring children get the right vitamins and minerals...</p>
+                <a href="#" style="color: var(--primary); font-weight: 600;">Read More →</a>
+            </div>
+            <div class="news-card" style="background: white;">
+                <span class="badge">Wellness</span>
+                <h3>Managing Stress in Daily Life</h3>
+                <p style="color: var(--text-light); margin: 0.5rem 0;">Chronic stress impacts physical health. Here are expert tips to manage it...</p>
+                <a href="#" style="color: var(--primary); font-weight: 600;">Read More →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT & LOCATION -->
+    <section id="contact">
+        <h2>Contact & Location</h2>
+        <div class="contact-grid">
+            <div>
+                <ul class="contact-info">
+                    <li><i data-lucide="map-pin"></i> <div><strong>Address</strong><br>123 Health Avenue, Medical District, City, 44000</div></li>
+                    <li><i data-lucide="phone"></i> <div><strong>Phone</strong><br>+92 300 1234567<br>Emergency: +92 300 9999999</div></li>
+                    <li><i data-lucide="mail"></i> <div><strong>Email</strong><br>info@mujahidhospital.com</div></li>
+                    <li><i data-lucide="clock"></i> <div><strong>Working Hours</strong><br>OPD: 9:00 AM - 8:00 PM<br>Emergency: 24/7</div></li>
+                </ul>
+                <form id="contact-form" style="margin-top: 2rem;">
+                    <input type="text" placeholder="Your Name" required style="width:100%; padding: 0.75rem; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 6px;">
+                    <input type="email" placeholder="Your Email" required style="width:100%; padding: 0.75rem; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 6px;">
+                    <textarea placeholder="Message" required style="width:100%; padding: 0.75rem; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 6px; min-height: 100px;"></textarea>
+                    <button type="submit" class="btn btn-outline" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+            <div class="map-placeholder">
+                <div>
+                    <i data-lucide="map" style="width: 48px; height: 48px; margin-bottom: 1rem;"></i>
+                    <h3>Google Maps Integration</h3>
+                    <p>123 Health Avenue, Medical District</p>
+                    <small>(Requires valid Google Maps API Key to render interactive map)</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo" style="color: white; margin-bottom: 1rem;">
+                    <i data-lucide="activity" style="color: var(--accent)"></i>
+                    Mujahid Hospital
+                </div>
+                <p style="color: #ccc; font-size: 0.9rem;">Compassionate Care. Advanced Medicine.</p>
+                <div class="socials">
+                    <a href="#"><i data-lucide="facebook"></i></a>
+                    <a href="#"><i data-lucide="twitter"></i></a>
+                    <a href="#"><i data-lucide="instagram"></i></a>
+                    <a href="#"><i data-lucide="youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#doctors">Our Doctors</a></li>
+                    <li><a href="#appointment">Book Appointment</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Departments</h4>
+                <ul>
+                    <li><a href="#">Cardiology</a></li>
+                    <li><a href="#">Orthopedics</a></li>
+                    <li><a href="#">Neurology</a></li>
+                    <li><a href="#">Pediatrics</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <ul style="color: #ccc; font-size: 0.9rem;">
+                    <li style="display:flex; gap:0.5rem;"><i data-lucide="phone" size="16"></i> +92 300 1234567</li>
+                    <li style="display:flex; gap:0.5rem;"><i data-lucide="mail" size="16"></i> info@mujahidhospital.com</li>
+                    <li style="display:flex; gap:0.5rem;"><i data-lucide="map-pin" size="16"></i> 123 Health Ave, City</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Mujahid Hospital. All rights reserved.</p>
+            <p><a href="#" style="color: #ccc;">Privacy Policy</a> | <a href="#" style="color: #ccc;">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <!-- EMERGENCY BANNER -->
+    <div id="emergency-banner">
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <div class="pulse-dot"></div>
+            Emergency? Call Now: <a href="tel:+923009999999" style="text-decoration: underline;">+92-300-9999999</a>
+        </div>
+        <button id="close-banner"><i data-lucide="x"></i></button>
+    </div>
+
+    <!-- STICKY MOBILE CTA -->
+    <a href="#appointment" class="btn btn-accent mobile-cta"><i data-lucide="calendar-plus"></i></a>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast">Appointment confirmed successfully!</div>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Sticky Nav & Scroll Effect
+        const nav = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const navLinks = document.getElementById('nav-links');
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Number Counter Animation (Intersection Observer)
+        const counters = document.querySelectorAll('.stat-number');
+        const speed = 200; 
+
+        const animateCounters = (entries, observer) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    const counter = entry.target;
+                    const updateCount = () => {
+                        const target = +counter.getAttribute('data-target');
+                        const count = +counter.innerText;
+                        const inc = target / speed;
+                        if(count < target) {
+                            counter.innerText = Math.ceil(count + inc);
+                            setTimeout(updateCount, 10);
+                        } else {
+                            counter.innerText = target + (target === 24 ? '' : '+');
+                        }
+                    };
+                    updateCount();
+                    observer.unobserve(counter);
+                }
+            });
+        };
+        const counterObserver = new IntersectionObserver(animateCounters, { threshold: 0.5 });
+        counters.forEach(counter => counterObserver.observe(counter));
+
+        // Services Tabs
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                btn.classList.add('active');
+                document.getElementById(btn.dataset.target).classList.add('active');
+            });
+        });
+
+        // Dynamic Doctor Selection
+        const deptSelect = document.getElementById('department');
+        const doctorSelect = document.getElementById('doctor');
+        const doctors = {
+            cardiology: ['Dr. Ahmed Khan', 'Dr. Faisal Raza'],
+            orthopedics: ['Dr. Bilal Raza'],
+            neurology: ['Dr. Sara Malik'],
+            gynecology: ['Dr. Hina Qureshi', 'Dr. Ayesha Tariq'],
+            general: ['Dr. Usman Ali', 'Any Available Doctor']
+        };
+
+        deptSelect.addEventListener('change', (e) => {
+            const dept = e.target.value;
+            doctorSelect.innerHTML = '';
+            if(doctors[dept]) {
+                doctors[dept].forEach(doc => {
+                    const opt = document.createElement('option');
+                    opt.value = doc; opt.textContent = doc;
+                    doctorSelect.appendChild(opt);
+                });
+            } else {
+                doctorSelect.innerHTML = '<option value="">Select Department First</option>';
+            }
+        });
+
+        // Form Submission & Toast Notification
+        const form = document.getElementById('booking-form');
+        const toast = document.getElementById('toast');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // In a real scenario, API call goes here
+            toast.classList.add('show');
+            form.reset();
+            doctorSelect.innerHTML = '<option value="">Select Department First</option>';
+            setTimeout(() => toast.classList.remove('show'), 3000);
+        });
+
+        // Testimonial Carousel
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.test-slide');
+        const dots = document.querySelectorAll('.dot');
+        
+        function setSlide(index) {
+            slides.forEach(s => s.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentSlide = index;
+        }
+
+        // Auto-play carousel
+        let carouselInterval = setInterval(() => {
+            let next = (currentSlide + 1) % slides.length;
+            setSlide(next);
+        }, 5000);
+
+        // Pause on hover
+        const carousel = document.querySelector('.testimonial-carousel');
+        carousel.addEventListener('mouseenter', () => clearInterval(carouselInterval));
+        carousel.addEventListener('mouseleave', () => {
+            carouselInterval = setInterval(() => {
+                let next = (currentSlide + 1) % slides.length;
+                setSlide(next);
+            }, 5000);
+        });
+
+        // Emergency Banner Dismiss
+        document.getElementById('close-banner').addEventListener('click', function() {
+            document.getElementById('emergency-banner').style.display = 'none';
+        });
+
+    </script>
+</body>
+</html>
