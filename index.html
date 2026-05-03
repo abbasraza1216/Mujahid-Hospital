@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mujahid Hospital Multan | 10,000+ Patients Treated</title>
+    <title>Mujahid Hospital Multan | 30+ Years Experience</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -71,11 +71,12 @@
         .stat-number { font-size: 2.2rem; font-weight: 700; color: var(--accent); }
 
         section { padding: 6rem 5%; }
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
         .card { background: white; padding: 2.5rem; border-radius: 12px; box-shadow: var(--shadow-sm); border-top: 5px solid transparent; transition: var(--transition); }
         .card:hover { transform: translateY(-8px); border-top-color: var(--accent); box-shadow: var(--shadow-md); }
         .card i { color: var(--primary); margin-bottom: 1.5rem; }
-        .card ul { margin-top: 1rem; color: var(--text-light); font-size: 0.95rem; }
+        .card h3 { margin-bottom: 1rem; }
+        .card ul { margin-top: 0.5rem; color: var(--text-light); font-size: 0.95rem; }
         .card ul li { margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
         .card ul li::before { content: "•"; color: var(--accent); font-weight: bold; }
 
@@ -88,6 +89,9 @@
         input, select, textarea { width: 100%; padding: 0.85rem; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; }
 
         footer { background: var(--primary-dark); color: white; padding: 5rem 5% 2rem; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 3rem; }
+        .footer-col h4 { color: white; margin-bottom: 1.5rem; border-left: 3px solid var(--accent); padding-left: 10px; }
+        
         #emergency-banner { position: fixed; bottom: 0; left: 0; width: 100%; background: var(--danger); color: white; padding: 1.2rem 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1001; }
         
         @keyframes morph { 
@@ -108,7 +112,6 @@
             <li><a href="#departments">Departments</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#doctors">Leadership</a></li>
-            <li><a href="#appointment">Bookings</a></li>
         </ul>
         <div style="display: flex; gap: 1rem;">
             <a href="tel:03337672190" class="btn btn-danger"><div class="pulse-dot"></div> Emergency</a>
@@ -117,30 +120,30 @@
 
     <header id="home" class="hero">
         <div class="hero-content">
-            <h1>Expert Care in the Heart of Multan</h1>
-            <p>Trusted by over 10,000 families. Mujahid Hospital is a leader in surgical precision and maternal care.</p>
+            <h1>Advanced Medical & Surgical Care in Multan</h1>
+            <p>Combining <strong>30+ years of clinical excellence</strong> with compassionate care. Trusted by over 10,000 families for specialized surgeries and 24/7 maternal emergencies.</p>
             <div style="display: flex; gap: 1rem; margin-bottom: 2.5rem; flex-wrap: wrap;">
-                <a href="#appointment" class="btn btn-accent">Schedule Your Visit</a>
-                <a href="#departments" class="btn btn-outline">Our Specialties</a>
+                <a href="#appointment" class="btn btn-accent">Book Appointment</a>
+                <a href="#departments" class="btn btn-outline">View Departments</a>
             </div>
             <div style="color: var(--text-light); font-weight: 500; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-                <span><i data-lucide="award" size="18" style="color: var(--accent); vertical-align: middle;"></i> 10,000+ Treated</span>
-                <span><i data-lucide="baby" size="18" style="color: var(--accent); vertical-align: middle;"></i> 2,000+ C-Sections</span>
+                <span><i data-lucide="check-circle" size="18" style="color: var(--accent); vertical-align: middle;"></i> 20+ Bed Facility</span>
+                <span><i data-lucide="clock" size="18" style="color: var(--accent); vertical-align: middle;"></i> 24/7 Gynae Emergency</span>
             </div>
         </div>
         
         <div class="hero-visual">
-            <i data-lucide="cross"></i>
+            <i data-lucide="heart-pulse" style="width:60px; height:60px; margin-bottom:20px;"></i>
             <h2>Mujahid<br>Hospital</h2>
-            <p style="opacity: 0.9; margin-top: 10px;">Excellence in Multan</p>
+            <p style="opacity: 0.9; margin-top: 10px; font-weight:600;">30+ Years of Experience</p>
         </div>
     </header>
 
     <section class="stats">
-        <div><div class="stat-number">10,000+</div><p>Patients Treated</p></div>
-        <div><div class="stat-number">2,000+</div><p>C-Sections Done</p></div>
-        <div><div class="stat-number">20</div><p>Inpatient Beds</p></div>
-        <div><div class="stat-number">24/7</div><p>Surgical Support</p></div>
+        <div><div class="stat-number">30+</div><p>Years of Practice</p></div>
+        <div><div class="stat-number">20+</div><p>Inpatient Beds</p></div>
+        <div><div class="stat-number">10,000+</div><p>Satisfied Patients</p></div>
+        <div><div class="stat-number">24/7</div><p>Gynae & Obs Care</p></div>
     </section>
 
     <section id="departments">
@@ -149,98 +152,109 @@
             <div class="card">
                 <i data-lucide="baby"></i>
                 <h3>Obs & Gynaecology</h3>
+                <p style="font-size: 0.9rem; margin-bottom: 1rem;">Complete maternal care and reproductive health services.</p>
                 <ul>
-                    <li>C-Section (LSCS)</li>
-                    <li>Total Hysterectomy</li>
-                    <li>Dilation & Curettage (D&C)</li>
+                    <li>C-Section (LSCS) & Normal Delivery</li>
+                    <li>Total Abdominal Hysterectomy</li>
+                    <li>Diagnostic & Operative D&C</li>
+                    <li>Antenatal & Postnatal Care</li>
+                    <li>Management of High-Risk Pregnancies</li>
                 </ul>
             </div>
             <div class="card">
                 <i data-lucide="scissors"></i>
                 <h3>General Surgery</h3>
+                <p style="font-size: 0.9rem; margin-bottom: 1rem;">Expert surgical interventions using modern techniques.</p>
                 <ul>
-                    <li>Appendectomy</li>
-                    <li>Cholecystectomy</li>
-                    <li>Hernia Surgery</li>
+                    <li>Laparoscopic & Open Cholecystectomy</li>
+                    <li>Appendectomy (Appendix Removal)</li>
+                    <li>Hernia Repair (Mesh & Suture)</li>
+                    <li>Hemorrhoids & Fistula Treatment</li>
+                    <li>Trauma & Emergency Surgery</li>
                 </ul>
             </div>
             <div class="card">
                 <i data-lucide="users"></i>
                 <h3>Pediatrics</h3>
+                <p style="font-size: 0.9rem; margin-bottom: 1rem;">Comprehensive healthcare for infants and children.</p>
                 <ul>
-                    <li>Circumcisions</li>
-                    <li>Neonatal Care</li>
-                    <li>General Pediatric Surgery</li>
+                    <li>Neonatal Resuscitation & Care</li>
+                    <li>Pediatric Routine Circumcisions</li>
+                    <li>Vaccinations & Immunization</li>
+                    <li>Management of Childhood Infections</li>
+                    <li>Pediatric Surgical Consultations</li>
                 </ul>
             </div>
             <div class="card">
                 <i data-lucide="stethoscope"></i>
                 <h3>General Medicine</h3>
+                <p style="font-size: 0.9rem; margin-bottom: 1rem;">Primary care for chronic and acute illnesses.</p>
                 <ul>
-                    <li>Chronic Disease Management</li>
-                    <li>Diagnostic Evaluations</li>
-                    <li>Inpatient Medicine</li>
+                    <li>Diabetes & Hypertension Management</li>
+                    <li>Respiratory & Gastric Issues</li>
+                    <li>Diagnostic Health Screenings</li>
+                    <li>Infectious Disease Treatment</li>
+                    <li>Geriatric (Elderly) Care</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <!-- RESTORED SERVICES SECTION -->
     <section id="services" style="background: var(--bg-gray);">
-        <h2>Our Facilities</h2>
+        <h2>Hospital Facilities</h2>
         <div class="grid-container">
             <div class="card">
-                <i data-lucide="beaker"></i>
-                <h3>Diagnostic Lab</h3>
-                <p>Fully equipped clinical laboratory for rapid and accurate diagnostic testing.</p>
+                <i data-lucide="pill"></i>
+                <h3>In-House Pharmacy</h3>
+                <p>Equipped with essential medicines and surgical supplies, ensuring 24/7 availability for all patients.</p>
             </div>
             <div class="card">
                 <i data-lucide="bed-double"></i>
-                <h3>20-Bed Ward</h3>
-                <p>Comfortable and sterile inpatient rooms with 24/7 nursing supervision.</p>
+                <h3>20+ Bed Ward</h3>
+                <p>Spacious, sterile, and climate-controlled rooms designed for post-surgical recovery and patient comfort.</p>
             </div>
             <div class="card">
-                <i data-lucide="shield-plus"></i>
-                <h3>Modern OT</h3>
-                <p>Advanced operating theaters designed for major and minor surgical procedures.</p>
+                <i data-lucide="shield-alert"></i>
+                <h3>24/7 Gynae Emergency</h3>
+                <p>Round-the-clock emergency support for labor, delivery, and urgent obstetric complications.</p>
             </div>
             <div class="card">
-                <i data-lucide="phone-call"></i>
-                <h3>Emergency</h3>
-                <p>24-hour trauma support and emergency medical interventions.</p>
+                <i data-lucide="microscope"></i>
+                <h3>Diagnostics</h3>
+                <p>Reliable laboratory services for blood work, pathology, and pre-operative screenings.</p>
             </div>
         </div>
     </section>
 
     <section id="doctors">
-        <h2>Hospital Leadership</h2>
+        <h2>Our Expert Doctors</h2>
         <div class="grid-container" style="max-width: 900px; margin: 0 auto;">
             <div class="doc-card">
                 <img src="zilley.jpg" alt="Dr. Zilley Zahra" class="doc-img" onerror="this.src='https://via.placeholder.com/180?text=Dr+Zilley'">
                 <h3>Dr. Zilley Zahra</h3>
                 <p><strong>Chief Medical Officer (CMO)</strong></p>
                 <p style="color: var(--accent); font-weight: 600;">Specialist Gynaecologist</p>
+                <p style="margin-top: 10px; font-size: 0.9rem; color: var(--text-light);">Over 30 years of experience in Gynaecology and Obstetrics.</p>
             </div>
             <div class="doc-card">
                 <img src="mujahid.jpg" alt="Dr. Mujahid Hussain" class="doc-img" onerror="this.src='https://via.placeholder.com/180?text=Dr+Mujahid'">
                 <h3>Dr. Mujahid Hussain</h3>
                 <p><strong>Chief Executive Officer (CEO)</strong></p>
                 <p style="color: var(--accent); font-weight: 600;">General Physician</p>
+                <p style="margin-top: 10px; font-size: 0.9rem; color: var(--text-light);">Over 30 years of expertise in clinical medicine and hospital management.</p>
             </div>
         </div>
     </section>
 
-    <!-- RESTORED & CORRECTED APPOINTMENT SECTION -->
     <section id="appointment">
         <div class="form-container">
-            <h2>Book An Appointment</h2>
-            <p class="subtitle" style="margin-bottom: 2rem;">Request a consultation or surgery slot online.</p>
+            <h2>Book Your Consultation</h2>
             <form id="booking-form" class="form-grid">
-                <input type="text" placeholder="Patient Name" required>
-                <input type="tel" placeholder="Phone Number (03XX XXXXXXX)" required>
+                <input type="text" placeholder="Patient Full Name" required>
+                <input type="tel" placeholder="Mobile Number (03XX-XXXXXXX)" required>
                 <div class="full">
                     <select required>
-                        <option value="">Select Department</option>
+                        <option value="">Select Department / Doctor</option>
                         <option>Obs & Gynaecology (Dr. Zilley Zahra)</option>
                         <option>General Medicine (Dr. Mujahid Hussain)</option>
                         <option>General Surgery</option>
@@ -249,59 +263,56 @@
                 </div>
                 <input type="date" required>
                 <select required>
-                    <option value="">Preferred Slot</option>
-                    <option>Morning (10:00 AM - 01:00 PM)</option>
-                    <option>Evening (05:00 PM - 08:00 PM)</option>
+                    <option value="">Select Timing</option>
+                    <option>Morning (10:00 AM - 04:00 PM)</option>
+                    <option>Evening (07:00 PM - 10:00 PM)</option>
                 </select>
-                <textarea class="full" placeholder="Briefly describe symptoms or surgical requirements..." rows="4"></textarea>
-                <button type="submit" class="btn btn-accent full">Confirm Booking Request</button>
+                <button type="submit" class="btn btn-accent full">Request Appointment</button>
             </form>
         </div>
     </section>
 
-    <section id="contact">
-        <div class="grid-container">
-            <div class="card">
-                <i data-lucide="map-pin"></i>
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Working Hours</h4>
+                <p style="color: #bbb; font-size: 0.9rem; margin-bottom: 5px;">Daily (Mon - Sat):</p>
+                <p>10:00 AM — 04:00 PM</p>
+                <p>07:00 PM — 10:00 PM</p>
+                <p style="color: var(--danger); margin-top: 10px; font-weight: 600;">Sunday: OFF</p>
+                <p style="color: var(--accent); font-size: 0.8rem; margin-top: 5px;">*24/7 Gynae Emergency remains open</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <p>03337672190</p>
+                <p style="margin-top: 10px;">mujhaidhospital@gmail.com</p>
+            </div>
+            <div class="footer-col">
                 <h4>Location</h4>
                 <p>Khan Village Road, Head Muhammad Wala Bypass, near Bosan Road, Multan.</p>
             </div>
-            <div class="card">
-                <i data-lucide="phone"></i>
-                <h4>Call Center</h4>
-                <p>03337672190</p>
-            </div>
-            <div class="card">
-                <i data-lucide="mail"></i>
-                <h4>Email</h4>
-                <p>mujhaidhospital@gmail.com</p>
-            </div>
         </div>
-    </section>
-
-    <footer>
-        <div style="text-align: center; color: #888; font-size: 0.85rem; padding: 2rem 0;">
-            &copy; 2026 Mujahid Hospital Multan. All rights reserved.
+        <hr style="border: 0; border-top: 1px solid #333; margin-bottom: 2rem;">
+        <div style="text-align: center; color: #888; font-size: 0.85rem;">
+            &copy; 2026 Mujahid Hospital Multan. Professional Healthcare with 30+ Years of Trust.
         </div>
     </footer>
 
     <div id="emergency-banner">
-        <div><i data-lucide="alert-circle" style="vertical-align: middle;"></i> <strong>EMERGENCY:</strong> Call 03337672190 immediately.</div>
-        <a href="tel:03337672190" class="btn btn-accent">Call Now</a>
+        <div><i data-lucide="alert-triangle" style="vertical-align: middle; margin-right: 8px;"></i> <strong>24/7 GYNAE EMERGENCY:</strong> Call 03337672190</div>
+        <a href="tel:03337672190" class="btn btn-accent">Call Emergency</a>
     </div>
 
     <script>
         lucide.createIcons();
-        
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             if (window.scrollY > 50) nav.classList.add('scrolled');
             else nav.classList.remove('scrolled');
         });
-
         document.getElementById('booking-form').addEventListener('submit', (e) => {
             e.preventDefault();
-            alert('Your request has been sent! Mujahid Hospital will call you shortly to confirm your slot.');
+            alert('Your request has been received. Our staff will contact you to confirm your slot during working hours.');
         });
     </script>
 </body>
