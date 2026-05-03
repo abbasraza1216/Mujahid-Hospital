@@ -3,14 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mujahid Hospital Multan | Compassionate Care. Advanced Medicine.</title>
+    <title>Mujahid Hospital Multan | 10,000+ Patients Treated</title>
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
@@ -51,8 +48,26 @@
 
         .hero { padding: 10rem 5% 6rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; background: linear-gradient(135deg, var(--bg-gray) 0%, white 100%); min-height: 85vh; }
         .hero-content h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 1.5rem; }
-        .hero-visual { background: var(--primary); border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; height: 450px; display: flex; align-items: center; justify-content: center; animation: morph 8s ease-in-out infinite; }
-        .hero-visual i { color: white; width: 120px; height: 120px; }
+        
+        /* The Moving Bubble */
+        .hero-visual { 
+            background: var(--primary); 
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; 
+            height: 450px; 
+            width: 100%;
+            max-width: 450px;
+            display: flex; 
+            flex-direction: column;
+            align-items: center; 
+            justify-content: center; 
+            animation: morph 8s ease-in-out infinite; 
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin: 0 auto;
+        }
+        .hero-visual i { width: 80px; height: 80px; margin-bottom: 15px; }
+        .hero-visual h2 { color: white; font-size: 2rem; margin: 0; }
 
         .stats { background: var(--primary); color: white; padding: 3rem 5%; display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center; }
         .stat-number { font-size: 2.2rem; font-weight: 700; color: var(--accent); }
@@ -67,27 +82,26 @@
         .card ul li::before { content: "•"; color: var(--accent); font-weight: bold; }
 
         .doc-card { text-align: center; padding: 2.5rem; border: 1px solid #eee; border-radius: 16px; background: white; transition: var(--transition); }
-        .doc-avatar { width: 130px; height: 130px; border-radius: 50%; background: var(--bg-gray); margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 2.8rem; font-weight: bold; color: var(--primary); border: 4px solid var(--accent); }
+        .doc-img { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 5px solid var(--accent); margin-bottom: 1.5rem; background: var(--bg-gray); }
 
         .test-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
         .testimonial-card { background: var(--bg-gray); padding: 2rem; border-radius: 12px; position: relative; }
-        .testimonial-card i { color: var(--accent); opacity: 0.2; position: absolute; top: 20px; right: 20px; width: 40px; height: 40px; }
-        .stars { color: #FFB800; margin-bottom: 1rem; }
-
+        
         .form-container { max-width: 850px; margin: 0 auto; background: var(--bg-gray); padding: 3.5rem; border-radius: 16px; box-shadow: var(--shadow-md); }
         .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
         .full { grid-column: 1 / -1; }
         input, select, textarea { width: 100%; padding: 0.85rem; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; }
 
         footer { background: var(--primary-dark); color: white; padding: 5rem 5% 2rem; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 4rem; }
+        #emergency-banner { position: fixed; bottom: 0; left: 0; width: 100%; background: var(--danger); color: white; padding: 1.2rem 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1001; }
         
-        #emergency-banner { position: fixed; bottom: 0; left: 0; width: 100%; background: var(--danger); color: white; padding: 1.2rem 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1001; box-shadow: 0 -4px 10px rgba(0,0,0,0.1); }
-        
-        @keyframes morph { 0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; } 50% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; } }
+        @keyframes morph { 
+            0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; transform: translateY(0); } 
+            50% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; transform: translateY(-20px); } 
+        }
         @keyframes pulse { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: 0.5; } 100% { transform: scale(1); opacity: 1; } }
 
-        @media (max-width: 992px) { .hero, .form-grid { grid-template-columns: 1fr; } .nav-links { display: none; } .hero-content { text-align: center; } .hero-visual { height: 350px; margin-top: 2rem; } .stats { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 992px) { .hero, .form-grid { grid-template-columns: 1fr; } .nav-links { display: none; } .hero-content { text-align: center; } .stats { grid-template-columns: 1fr 1fr; } }
     </style>
 </head>
 <body>
@@ -98,12 +112,10 @@
             <li><a href="#home">Home</a></li>
             <li><a href="#departments">Departments</a></li>
             <li><a href="#doctors">Leadership</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="#appointment">Book Now</a></li>
         </ul>
         <div style="display: flex; gap: 1rem;">
             <a href="tel:03337672190" class="btn btn-danger"><div class="pulse-dot"></div> Emergency</a>
-            <a href="#appointment" class="btn btn-accent">Book Now</a>
         </div>
     </nav>
 
@@ -116,13 +128,17 @@
                 <a href="#departments" class="btn btn-outline">Our Specialties</a>
             </div>
             <div style="color: var(--text-light); font-weight: 500; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-                <span><i data-lucide="award" size="18" style="color: var(--accent); vertical-align: middle;"></i> 10,000+ Patients Treated</span>
+                <span><i data-lucide="award" size="18" style="color: var(--accent); vertical-align: middle;"></i> 10,000+ Treated</span>
                 <span><i data-lucide="baby" size="18" style="color: var(--accent); vertical-align: middle;"></i> 2,000+ C-Sections</span>
-                <span><i data-lucide="check-circle" size="18" style="color: var(--accent); vertical-align: middle;"></i> 24/7 Surgical Unit</span>
-                <span><i data-lucide="check-circle" size="18" style="color: var(--accent); vertical-align: middle;"></i> 20-Bed Inpatient Ward</span>
             </div>
         </div>
-        <div class="hero-visual"><i data-lucide="shield-check"></i></div>
+        
+        <!-- The Morphing Bubble with Name -->
+        <div class="hero-visual">
+            <i data-lucide="cross"></i>
+            <h2>Mujahid<br>Hospital</h2>
+            <p style="opacity: 0.9; margin-top: 10px;">Since 2015</p>
+        </div>
     </header>
 
     <section class="stats">
@@ -134,50 +150,41 @@
 
     <section id="departments">
         <h2>Specialized Departments</h2>
-        <p class="subtitle">Comprehensive surgical and medical solutions for Multan and surrounding areas.</p>
         <div class="grid-container">
             <div class="card">
                 <i data-lucide="baby"></i>
                 <h3>Obs & Gynaecology</h3>
-                <p>Over 2,000 successful C-sections led by Dr. Zilley Zahra.</p>
                 <ul>
                     <li>C-Section (LSCS)</li>
                     <li>Total Hysterectomy</li>
                     <li>Dilation & Curettage (D&C)</li>
-                    <li>Advanced Antenatal Care</li>
                 </ul>
             </div>
             <div class="card">
                 <i data-lucide="scissors"></i>
                 <h3>General Surgery</h3>
-                <p>High-precision operative care for acute conditions.</p>
                 <ul>
                     <li>Appendectomy</li>
-                    <li>Cholecystectomy (Gallbladder)</li>
-                    <li>Hernia & Trauma Surgery</li>
-                    <li>Post-Op Monitoring</li>
+                    <li>Cholecystectomy</li>
+                    <li>Hernia Surgery</li>
                 </ul>
             </div>
             <div class="card">
                 <i data-lucide="users"></i>
                 <h3>Pediatrics</h3>
-                <p>Careful surgical and medical treatment for children.</p>
                 <ul>
-                    <li>Pediatric Circumcisions</li>
-                    <li>Neonatal Consultation</li>
-                    <li>General Pediatric Surgeries</li>
-                    <li>Growth Management</li>
+                    <li>Circumcisions</li>
+                    <li>Neonatal Care</li>
+                    <li>Pediatric Surgeries</li>
                 </ul>
             </div>
             <div class="card">
                 <i data-lucide="stethoscope"></i>
                 <h3>General Medicine</h3>
-                <p>Primary care and diagnostic checkups led by our CEO.</p>
                 <ul>
-                    <li>Chronic Disease Care</li>
-                    <li>General Consultations</li>
+                    <li>Chronic Care</li>
                     <li>Diagnostic Evaluations</li>
-                    <li>Inpatient Medical Stays</li>
+                    <li>Inpatient Medicine</li>
                 </ul>
             </div>
         </div>
@@ -185,94 +192,44 @@
 
     <section id="doctors" style="background: var(--bg-gray);">
         <h2>Hospital Leadership</h2>
-        <p class="subtitle">Experienced leaders committed to providing world-class health services.</p>
         <div class="grid-container" style="max-width: 900px; margin: 0 auto;">
             <div class="doc-card">
-                <div class="doc-avatar">ZZ</div>
+                <img src="zilley.jpg" alt="Dr. Zilley Zahra" class="doc-img" onerror="this.src='https://via.placeholder.com/180?text=Dr+Zilley'">
                 <h3>Dr. Zilley Zahra</h3>
                 <p><strong>Chief Medical Officer (CMO)</strong></p>
                 <p style="color: var(--accent); font-weight: 600;">Specialist Gynaecologist</p>
-                <p style="color: var(--text-light); margin-top: 1rem;">Renowned for performing over 2,000 successful obstetric procedures.</p>
             </div>
             <div class="doc-card">
-                <div class="doc-avatar">MH</div>
+                <img src="mujahid.jpg" alt="Dr. Mujahid Hussain" class="doc-img" onerror="this.src='https://via.placeholder.com/180?text=Dr+Mujahid'">
                 <h3>Dr. Mujahid Hussain</h3>
                 <p><strong>Chief Executive Officer (CEO)</strong></p>
                 <p style="color: var(--accent); font-weight: 600;">General Physician</p>
-                <p style="color: var(--text-light); margin-top: 1rem;">Managing excellence in patient care and clinical operations.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="services">
-        <h2>Hospital Facilities</h2>
-        <div class="grid-container">
-            <div class="card"><i data-lucide="test-tube-2"></i><h3>Diagnostic Lab</h3><p>State-of-the-art laboratory for all essential medical tests and screenings.</p></div>
-            <div class="card"><i data-lucide="hotel"></i><h3>Inpatient Ward</h3><p>Our 20-bed facility ensures focused care during your recovery period.</p></div>
-            <div class="card"><i data-lucide="shield-plus"></i><h3>Surgical OT</h3><p>Sterile and high-tech operation theaters for major surgical interventions.</p></div>
-            <div class="card"><i data-lucide="phone-forwarded"></i><h3>Emergency Unit</h3><p>Equipped to handle trauma and acute surgical emergencies 24/7.</p></div>
-        </div>
-    </section>
-
-    <section id="testimonials">
-        <h2>Patient Testimonials</h2>
-        <p class="subtitle">Real stories from the 10,000+ patients we have proudly served.</p>
-        <div class="test-grid">
-            <div class="testimonial-card">
-                <i data-lucide="quote"></i>
-                <div class="stars">★★★★★</div>
-                <p>"Dr. Zilley Zahra's expertise is unmatched. I felt safe throughout my surgery and the recovery in the ward was excellent."</p>
-                <h4 style="margin-top: 1rem;">- Saima Bibi</h4>
-            </div>
-            <div class="testimonial-card">
-                <i data-lucide="quote"></i>
-                <div class="stars">★★★★★</div>
-                <p>"The best hospital in Multan for surgical procedures. Transparent billing and very professional behavior by Dr. Mujahid."</p>
-                <h4 style="margin-top: 1rem;">- Muhammad Asif</h4>
-            </div>
-            <div class="testimonial-card">
-                <i data-lucide="quote"></i>
-                <div class="stars">★★★★★</div>
-                <p>"Very satisfied with the pediatric services. My son's surgery was handled with extreme care and professionalism."</p>
-                <h4 style="margin-top: 1rem;">- Zoya Khan</h4>
             </div>
         </div>
     </section>
 
     <section id="appointment">
         <div class="form-container">
-            <h2 style="text-align: left;">Confirm Your Appointment</h2>
-            <p style="margin-bottom: 2rem;">Quickly book a slot with our specialists at Mujahid Hospital Multan.</p>
+            <h2>Book An Appointment</h2>
             <form id="booking-form" class="form-grid">
                 <input type="text" placeholder="Patient Name" required>
-                <input type="tel" placeholder="Phone Number (e.g. 03337672190)" required>
+                <input type="tel" placeholder="Phone Number" required>
                 <div class="full">
                     <select required>
                         <option value="">Select Department</option>
-                        <option>Obs & Gynaecology (Dr. Zilley Zahra)</option>
-                        <option>General Medicine (Dr. Mujahid Hussain)</option>
+                        <option>Obs & Gynaecology</option>
+                        <option>General Medicine</option>
                         <option>General Surgery</option>
                         <option>Pediatrics</option>
                     </select>
                 </div>
-                <input type="date" required>
-                <select required>
-                    <option value="">Preferred Time</option>
-                    <option>Morning (10 AM - 1 PM)</option>
-                    <option>Evening (5 PM - 8 PM)</option>
-                </select>
-                <textarea class="full" placeholder="Brief details about the patient or required surgery..." rows="4"></textarea>
-                <button type="submit" class="btn btn-accent full" style="font-size: 1.1rem;">Confirm Booking Request</button>
+                <button type="submit" class="btn btn-accent full">Confirm Booking Request</button>
             </form>
         </div>
     </section>
 
     <section id="contact">
         <div class="grid-container">
-            <div class="full">
-                <h2>Our Location</h2>
-                <p style="margin-bottom: 3rem;">Easy access via Muhammad Wala Bypass for patients from all over Multan.</p>
-            </div>
             <div class="card">
                 <i data-lucide="map-pin"></i>
                 <h4>Address</h4>
@@ -280,51 +237,26 @@
             </div>
             <div class="card">
                 <i data-lucide="phone"></i>
-                <h4>Emergency Contact</h4>
+                <h4>Contact</h4>
                 <p>03337672190</p>
-                <p>Emergency Services 24/7</p>
             </div>
             <div class="card">
                 <i data-lucide="mail"></i>
-                <h4>Support Email</h4>
+                <h4>Email</h4>
                 <p>mujhaidhospital@gmail.com</p>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="footer-grid">
-            <div>
-                <div class="logo" style="color: white; margin-bottom: 1rem;"><i data-lucide="activity"></i> Mujahid Hospital</div>
-                <p>Expert surgical and maternal care. Trusted by over 10,000 patients in Multan.</p>
-            </div>
-            <div>
-                <h4>Navigation</h4>
-                <ul style="font-size: 0.9rem; color: #ccc;">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#departments">Our Services</a></li>
-                    <li><a href="#appointment">Bookings</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4>Specialties</h4>
-                <ul style="font-size: 0.9rem; color: #ccc;">
-                    <li>LSCS & Hysterectomy</li>
-                    <li>Cholecystectomy</li>
-                    <li>Appendectomy</li>
-                    <li>Pediatric Surgery</li>
-                </ul>
-            </div>
-        </div>
-        <div style="text-align: center; margin-top: 4rem; border-top: 1px solid #333; padding-top: 1.5rem; color: #888; font-size: 0.85rem;">
-            &copy; 2026 Mujahid Hospital Multan. All rights reserved. | 10,000+ Healthy Smiles.
+        <div style="text-align: center; color: #888; font-size: 0.85rem;">
+            &copy; 2026 Mujahid Hospital Multan. All rights reserved.
         </div>
     </footer>
 
     <div id="emergency-banner">
-        <div><i data-lucide="phone-call" style="vertical-align: middle; margin-right: 8px;"></i> <strong>EMERGENCY:</strong> Call 03337672190 for immediate surgical care.</div>
-        <a href="tel:03337672190" class="btn btn-accent" style="padding: 0.5rem 1rem;">Call Now</a>
+        <div><strong>EMERGENCY:</strong> Call 03337672190 immediately.</div>
+        <a href="tel:03337672190" class="btn btn-accent">Call Now</a>
     </div>
 
     <script>
@@ -333,10 +265,6 @@
             const nav = document.getElementById('navbar');
             if (window.scrollY > 50) nav.classList.add('scrolled');
             else nav.classList.remove('scrolled');
-        });
-        document.getElementById('booking-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Your appointment request has been sent to Mujahid Hospital Multan. We will contact you shortly.');
         });
     </script>
 </body>
