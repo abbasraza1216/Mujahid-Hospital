@@ -83,6 +83,11 @@
         .doc-card { text-align: center; padding: 2.5rem; border: 1px solid #eee; border-radius: 16px; background: white; transition: var(--transition); }
         .doc-img { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 5px solid var(--accent); margin-bottom: 1.5rem; background: var(--bg-gray); }
 
+        .timings-block { background: var(--primary); color: white; padding: 4rem 5%; border-radius: 20px; text-align: center; margin-bottom: 2rem; }
+        .time-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .time-card { background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
+        .time-card h4 { color: var(--accent); font-size: 1.2rem; margin-bottom: 1rem; }
+
         .form-container { max-width: 850px; margin: 0 auto; background: var(--bg-gray); padding: 3.5rem; border-radius: 16px; box-shadow: var(--shadow-md); }
         .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
         .full { grid-column: 1 / -1; }
@@ -110,8 +115,9 @@
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#departments">Departments</a></li>
-            <li><a href="#services">Services</a></li>
+            <li><a href="#services">Facilities</a></li>
             <li><a href="#doctors">Leadership</a></li>
+            <li><a href="#appointment">Bookings</a></li>
         </ul>
         <div style="display: flex; gap: 1rem;">
             <a href="tel:03337672190" class="btn btn-danger"><div class="pulse-dot"></div> Emergency</a>
@@ -120,7 +126,7 @@
 
     <header id="home" class="hero">
         <div class="hero-content">
-            <h1>Advanced Medical & Surgical Care in Multan</h1>
+            <h1>Expert Care in the Heart of Multan</h1>
             <p>Combining <strong>30+ years of clinical excellence</strong> with compassionate care. Trusted by over 10,000 families for specialized surgeries and 24/7 maternal emergencies.</p>
             <div style="display: flex; gap: 1rem; margin-bottom: 2.5rem; flex-wrap: wrap;">
                 <a href="#appointment" class="btn btn-accent">Book Appointment</a>
@@ -170,7 +176,7 @@
                     <li>Appendectomy (Appendix Removal)</li>
                     <li>Hernia Repair (Mesh & Suture)</li>
                     <li>Hemorrhoids & Fistula Treatment</li>
-                    <li>Trauma & Emergency Surgery</li>
+                    <li>Minimally Invasive Procedures</li>
                 </ul>
             </div>
             <div class="card">
@@ -201,17 +207,17 @@
     </section>
 
     <section id="services" style="background: var(--bg-gray);">
-        <h2>Hospital Facilities</h2>
+        <h2>Our Facilities (8 Services)</h2>
         <div class="grid-container">
             <div class="card">
                 <i data-lucide="pill"></i>
                 <h3>In-House Pharmacy</h3>
-                <p>Equipped with essential medicines and surgical supplies, ensuring 24/7 availability for all patients.</p>
+                <p>Equipped with essential medicines and surgical supplies, ensuring 24/7 availability.</p>
             </div>
             <div class="card">
                 <i data-lucide="bed-double"></i>
                 <h3>20+ Bed Ward</h3>
-                <p>Spacious, sterile, and climate-controlled rooms designed for post-surgical recovery and patient comfort.</p>
+                <p>Spacious, sterile, and climate-controlled rooms designed for post-surgical recovery.</p>
             </div>
             <div class="card">
                 <i data-lucide="shield-alert"></i>
@@ -220,8 +226,28 @@
             </div>
             <div class="card">
                 <i data-lucide="microscope"></i>
-                <h3>Diagnostics</h3>
+                <h3>Diagnostics Lab</h3>
                 <p>Reliable laboratory services for blood work, pathology, and pre-operative screenings.</p>
+            </div>
+            <div class="card">
+                <i data-lucide="zap"></i>
+                <h3>Modern OT</h3>
+                <p>Advanced operating theaters equipped for major surgical precision and safety.</p>
+            </div>
+            <div class="card">
+                <i data-lucide="ambulance"></i>
+                <h3>24/7 Ambulance</h3>
+                <p>Swift medical transportation services for urgent patient transfers and emergencies.</p>
+            </div>
+            <div class="card">
+                <i data-lucide="user-plus"></i>
+                <h3>Nursing Staff</h3>
+                <p>Dedicated professional nursing care available day and night for inpatient management.</p>
+            </div>
+            <div class="card">
+                <i data-lucide="radio"></i>
+                <h3>Ultrasound (USG)</h3>
+                <p>On-site imaging facilities for antenatal checks and diagnostic internal evaluations.</p>
             </div>
         </div>
     </section>
@@ -272,16 +298,44 @@
         </div>
     </section>
 
+    <!-- NEW TIMINGS BLOCK -->
+    <section id="timings" style="padding-bottom: 2rem;">
+        <div class="timings-block">
+            <i data-lucide="clock-4" style="width: 40px; height: 40px; color: var(--accent); margin-bottom: 1rem;"></i>
+            <h2>Timings & Availability</h2>
+            <p style="opacity: 0.8;">Quality healthcare services available at your convenience.</p>
+            
+            <div class="time-grid">
+                <div class="time-card">
+                    <i data-lucide="sun"></i>
+                    <h4>Morning OPD</h4>
+                    <p>Monday — Saturday</p>
+                    <p style="font-size: 1.5rem; font-weight: 700; margin-top: 0.5rem;">10:00 AM — 04:00 PM</p>
+                </div>
+                <div class="time-card">
+                    <i data-lucide="moon"></i>
+                    <h4>Evening OPD</h4>
+                    <p>Monday — Saturday</p>
+                    <p style="font-size: 1.5rem; font-weight: 700; margin-top: 0.5rem;">07:00 PM — 10:00 PM</p>
+                </div>
+                <div class="time-card" style="background: rgba(230, 57, 70, 0.1); border-color: var(--danger);">
+                    <i data-lucide="calendar-x" style="color: var(--danger);"></i>
+                    <h4 style="color: var(--danger);">Sunday Policy</h4>
+                    <p>Regular OPD Closed</p>
+                    <p style="font-size: 1.1rem; font-weight: 600; margin-top: 0.5rem;">Closed for Routine Visits</p>
+                </div>
+                <div class="time-card" style="background: rgba(42, 174, 116, 0.15); border-color: var(--accent);">
+                    <i data-lucide="shield-check"></i>
+                    <h4>Emergency Services</h4>
+                    <p>Obs & Gynae Only</p>
+                    <p style="font-size: 1.5rem; font-weight: 700; margin-top: 0.5rem;">OPEN 24/7</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <div class="footer-grid">
-            <div class="footer-col">
-                <h4>Working Hours</h4>
-                <p style="color: #bbb; font-size: 0.9rem; margin-bottom: 5px;">Daily (Mon - Sat):</p>
-                <p>10:00 AM — 04:00 PM</p>
-                <p>07:00 PM — 10:00 PM</p>
-                <p style="color: var(--danger); margin-top: 10px; font-weight: 600;">Sunday: OFF</p>
-                <p style="color: var(--accent); font-size: 0.8rem; margin-top: 5px;">*24/7 Gynae Emergency remains open</p>
-            </div>
             <div class="footer-col">
                 <h4>Contact Info</h4>
                 <p>03337672190</p>
